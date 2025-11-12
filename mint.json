@@ -15,6 +15,9 @@
       "to": "#07C983"
     }
   },
+  "api": {
+    "baseUrl": "https://cuddly-octo-waddle-rmrq.onrender.com"
+  },
   "topbarLinks": [
     {
       "name": "Support",
