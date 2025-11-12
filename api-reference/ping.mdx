@@ -1,0 +1,157 @@
+---
+title: 'GET /ping'
+api: 'GET /ping'
+description: 'Health check endpoint that returns a simple pong response'
+---
+
+## Overview
+
+The `/ping` endpoint is a simple health check endpoint that returns a JSON response. It's useful for:
+
+- Verifying the API is running
+- Monitoring uptime
+- Load balancer health checks
+- Quick connectivity tests
+
+## Endpoint
+
+```
+GET /ping
+```
+
+## Request
+
+This endpoint requires no parameters, headers, or authentication.
+
+<ParamField query="none" type="none">
+  No parameters required
+</ParamField>
+
+## Response
+
+<ResponseField name="data" type="string" required>
+  Always returns the string "pong"
+</ResponseField>
+
+### Response Example
+
+<ResponseExample>
+
+```json Success Response
+{
+  "data": "pong"
+}
+```
+
+</ResponseExample>
+
+## Code Examples
+
+<CodeGroup>
+
+```bash cURL
+curl https://cuddly-octo-waddle-rmrq.onrender.com/ping
+```
+
+```javascript JavaScript (Fetch)
+fetch('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+  .then(response => response.json())
+  .then(data => console.log(data));
+// Output: { data: "pong" }
+```
+
+```javascript JavaScript (Axios)
+const axios = require('axios');
+
+axios.get('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+  .then(response => console.log(response.data));
+// Output: { data: "pong" }
+```
+
+```python Python (Requests)
+import requests
+
+response = requests.get('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+print(response.json())
+# Output: {'data': 'pong'}
+```
+
+```python Python (HTTPX)
+import httpx
+
+response = httpx.get('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+print(response.json())
+# Output: {'data': 'pong'}
+```
+
+```go Go
+package main
+
+import (
+    "fmt"
+    "io"
+    "net/http"
+)
+
+func main() {
+    resp, err := http.Get("https://cuddly-octo-waddle-rmrq.onrender.com/ping")
+    if err != nil {
+        panic(err)
+    }
+    defer resp.Body.Close()
+
+    body, _ := io.ReadAll(resp.Body)
+    fmt.Println(string(body))
+    // Output: {"data":"pong"}
+}
+```
+
+```ruby Ruby
+require 'net/http'
+require 'json'
+
+uri = URI('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+response = Net::HTTP.get(uri)
+puts JSON.parse(response)
+# Output: {"data"=>"pong"}
+```
+
+```php PHP
+<?php
+$response = file_get_contents('https://cuddly-octo-waddle-rmrq.onrender.com/ping');
+$data = json_decode($response, true);
+print_r($data);
+// Output: Array ( [data] => pong )
+?>
+```
+
+</CodeGroup>
+
+## Status Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| 200 | Successful response |
+| 500 | Server error (rare) |
+
+## Try It Now
+
+You can try this endpoint right now using the interactive API documentation:
+
+<Card
+  title="Interactive API Docs"
+  icon="play"
+  href="https://cuddly-octo-waddle-rmrq.onrender.com/docs"
+>
+  Test the endpoint in your browser with Swagger UI
+</Card>
+
+## Notes
+
+<Note>
+  This endpoint always returns the same response and is primarily used for health checks and testing connectivity.
+</Note>
+
+<Warning>
+  On Render's free tier, the API may spin down after 15 minutes of inactivity. The first request after inactivity may take 30-60 seconds to respond while the server starts up.
+</Warning>

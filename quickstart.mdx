@@ -1,0 +1,118 @@
+---
+title: 'Quickstart'
+description: 'Get started with the FastAPI Ping API in under 5 minutes'
+---
+
+## Try the Live API
+
+The easiest way to get started is to try the live API right now:
+
+<CodeGroup>
+
+```bash cURL
+curl https://cuddly-octo-waddle-rmrq.onrender.com/ping
+```
+
+```javascript JavaScript
+fetch('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+```python Python
+import requests
+
+response = requests.get('https://cuddly-octo-waddle-rmrq.onrender.com/ping')
+print(response.json())
+```
+
+</CodeGroup>
+
+**Expected Response:**
+```json
+{
+  "data": "pong"
+}
+```
+
+## Run Locally
+
+Want to run the API on your own machine? Follow these steps:
+
+<Steps>
+  <Step title="Clone the Repository">
+    ```bash
+    git clone https://github.com/akshatvn/cuddly-octo-waddle.git
+    cd cuddly-octo-waddle
+    ```
+  </Step>
+
+  <Step title="Install Dependencies">
+    Make sure you have Python 3.7+ installed, then:
+    ```bash
+    pip install -r requirements.txt
+    ```
+  </Step>
+
+  <Step title="Run the Server">
+    ```bash
+    python main.py
+    ```
+
+    Or using uvicorn directly:
+    ```bash
+    uvicorn main:app --reload
+    ```
+  </Step>
+
+  <Step title="Test the Endpoint">
+    Open your browser or use curl:
+    ```bash
+    curl http://localhost:8000/ping
+    ```
+  </Step>
+</Steps>
+
+## Interactive API Documentation
+
+FastAPI automatically generates interactive API documentation. Once your server is running, visit:
+
+<CardGroup cols={2}>
+  <Card
+    title="Swagger UI"
+    icon="swagger"
+    href="http://localhost:8000/docs"
+  >
+    Interactive API explorer with Swagger UI
+  </Card>
+  <Card
+    title="ReDoc"
+    icon="book"
+    href="http://localhost:8000/redoc"
+  >
+    Alternative documentation with ReDoc
+  </Card>
+</CardGroup>
+
+For the live API, visit:
+- [Swagger UI](https://cuddly-octo-waddle-rmrq.onrender.com/docs)
+- [ReDoc](https://cuddly-octo-waddle-rmrq.onrender.com/redoc)
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card
+    title="API Reference"
+    icon="code"
+    href="/api-reference/ping"
+  >
+    Explore the API endpoints in detail
+  </Card>
+  <Card
+    title="Deploy Your Own"
+    icon="rocket"
+    href="https://render.com"
+  >
+    Deploy your own instance on Render
+  </Card>
+</CardGroup>
